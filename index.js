@@ -7,7 +7,9 @@ class Pokemon {
         this.magic = magic;
         this.skills = [];
     }
-    learnAttackSkill() {}
+    learnAttackSkill(skillToLearn) {
+        if (skillToLearn) this.skills.push(skillToLearn);
+    }
     showStatus() {
         return `${this.name}${this.health}, ${this.magic}`;
     }
@@ -34,8 +36,8 @@ class AttackSkill {
 
 //Attacke Instanzen:
 const lightning = new AttackSkill("lightning", 40, 30);
-
-console.log(lightning);
+pikaChu.learnAttackSkill(lightning); // Pikachu Skill beibringen
+console.log(pikaChu);
 // For example, here we're creating a lightning attack skill that causes 40 damage, and requires 30 magic:
 // let lightning = new AttackSkill("lightning", 40, 30);
 
