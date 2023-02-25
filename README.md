@@ -1,1 +1,1 @@
-# pb-workshop-Pokemon_Lite-JSW
+# pb-workshop-Sailormoon_Lite-JSW
