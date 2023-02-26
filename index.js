@@ -14,10 +14,9 @@ class SailorCharacters {
     }
 
     showStatus() {
-        return `${this.name}, HP: ${this.health}, MP: ${this.magic}`;
+        return `${this.name}, HP: ${this.health}, MP: ${this.magic}, Skills: ${this.skills[0].poWer}`;
     } // Status anzeigen (Name, Gesundheit, Magie)
     attack(poWerIndex, geGner) {
-        // return `${this.name} attacked ${geGner.name}.  `;
         if (this.magic < this.skills[poWerIndex].magicCost) {
             return `${this.skills[poWerIndex].poWer} is too expensive. You don't have enough ${this.magicCost}. Try another one.`;
         } else if (this.magic >= this.skills[poWerIndex].magicCost) {
@@ -58,7 +57,7 @@ class AttackSkill {
 }
 
 //Attacke Instanzen:
-//Jedes skill macht einen gewissen dmgLoad (Schaden) und nimmt dafür eine gewisse Menge magicBulk(Menge an Magie) von dem angegriffenen Pokemon.
+//Jede poWer (skill) macht einen gewissen dmgLoad (Schaden) und nimmt dafür eine gewisse Menge magicCost(Menge an Magie) von dem angegriffenen Pokemon.
 
 const moonTiaraAction = new AttackSkill("Moon Tiara Action", 120, 30);
 const deadScream = new AttackSkill("Dead Scream", 80, 20);
@@ -70,16 +69,16 @@ const sparklingWidePressure = new AttackSkill(
 const mercuryAquaRhapsody = new AttackSkill("Mercury Aqua Rhapsody", 75, 13);
 const worldShaking = new AttackSkill("World Shaking", 100, 18);
 
-const hairWhip = new AttackSkill("hair whip", 100, 30);
-//--------------------------------------------------
-//
+const hairWhip = new AttackSkill("Hair Whip", 100, 30);
+//------------------------------------------
+//INTRO:
 
 setTimeout(function () {
     console.log(
         `Once a normal sorceress who fell in love with Prince Endymion  but was heartbroken when she found that he was in love with Princess Serenity.`
     );
 }, 1000);
-
+//-----------------------------------------
 setTimeout(function () {
     console.log(` `);
 }, 6000);
@@ -88,7 +87,7 @@ setTimeout(function () {
         `Her despair cast her into darkness and her new goal in life was to rule the universe with Endymion at her side.`
     );
 }, 6000);
-
+//------------------------------------------
 setTimeout(function () {
     console.log(` `);
 }, 12000);
@@ -97,16 +96,16 @@ setTimeout(function () {
         `She is an extremely powerful magic user with an arsenal of spells and can even use her hair as a whip. With her poisoned heart, she loves to hurt everyone who's happy and tries to convince, weak people of her evil plans and makes them to their slaves.`
     );
 }, 12000);
-
+//----------------------------------------
 setTimeout(function () {
     console.log(` `);
 }, 18000);
 setTimeout(function () {
     console.log(
-        ` But there are still our undfrightened and brave Sailor Warriors, who will defend humanity with theier lives with all their power and love...`
+        `But there are still our undfrightened and brave Sailor Warriors, who will defend humanity with theier lives with all their power and love...`
     );
 }, 18000);
-
+//----------------------------------------
 setTimeout(function () {
     console.log(` `);
 }, 23000);
@@ -114,8 +113,8 @@ setTimeout(function () {
     console.log(sailorMoon.learnAttackSkill(moonTiaraAction));
 }, 23000);
 
-// //------------------------------------------------
-// Sailor Pluto Skill beibringen
+//-------------------------------------------
+// Teach Sailor Pluto Skill
 setTimeout(function () {
     console.log(` `);
 }, 25000);
@@ -123,8 +122,8 @@ setTimeout(function () {
     console.log(sailorPluto.learnAttackSkill(deadScream));
 }, 25000);
 
-// //------------------------------------------------
-// Sailor Jupiter Skill beibringen
+// ------------------------------------------
+// Teach Sailor Jupiter Skill
 setTimeout(function () {
     console.log(` `);
 }, 27000);
@@ -132,8 +131,8 @@ setTimeout(function () {
     console.log(sailorJupiter.learnAttackSkill(sparklingWidePressure));
 }, 27000);
 
-//-----------------------------------------------
-// Sailor Mercury Skill beibringen
+//-------------------------------------------
+// Teach Sailor Mercury Skill
 setTimeout(function () {
     console.log(` `);
 }, 29000);
@@ -142,99 +141,121 @@ setTimeout(function () {
 }, 29000);
 
 //------------------------------------------------
-// Sailor Uranus Skill beibringen
+// Teach Sailor Uranus Skill
 setTimeout(function () {
     console.log(` `);
 }, 31000);
 setTimeout(function () {
-    console.log(sailorUranus.learnAttackSkill(mercuryAquaRhapsody));
+    console.log(sailorUranus.learnAttackSkill(worldShaking));
 }, 31000);
 
 //------------------------------------------------
-// Queen Beryl Skill beibringen
+// Teach Queen Beryl Skill (Villain)
 setTimeout(function () {
     console.log(` `);
 }, 33000);
 setTimeout(function () {
-    console.log(queenBeryl.learnAttackSkill(mercuryAquaRhapsody));
+    console.log(queenBeryl.learnAttackSkill(hairWhip));
 }, 33000);
+//---------------------------------------
+// Sailor Moon attacked Queen Beryl.
 setTimeout(function () {
     console.log(` `);
 }, 34000);
 setTimeout(function () {
-    console.log(sailorMoon.attack(0, queenBeryl)); // Sailor Moon  attacked attacked Queen Beryl.
+    console.log(sailorMoon.attack(0, queenBeryl));
 }, 34000);
+//---------------------------------------
+// Show status  (Queen Beryl)
 setTimeout(function () {
     console.log(` `);
 }, 35000);
 setTimeout(function () {
     console.log(queenBeryl.showStatus()); //
 }, 35000);
+//---------------------------------------
+//Show status  (Sailor Moon)
 setTimeout(function () {
     console.log(` `);
 }, 37000);
 setTimeout(function () {
     console.log(sailorMoon.showStatus()); //
 }, 37000);
-
+//---------------------------------------
+// Queen Beryl attacked attacked Sailor Moon.
 setTimeout(function () {
     console.log(` `);
 }, 39000);
 setTimeout(function () {
-    console.log(queenBeryl.attack(0, sailorMoon)); // Queen Beryl attacked attacked Sailor Moon.
+    console.log(queenBeryl.attack(0, sailorMoon));
 }, 39000);
-
+//---------------------------------------
+// Sailor Moon gets magic.
 setTimeout(function () {
     console.log(` `);
 }, 41000);
 setTimeout(function () {
-    console.log(sailorMoon.getMagic()); // Sailor Moon gets magic.
+    console.log(sailorMoon.getMagic()); //
 }, 41000);
+//---------------------------------------
+//Show status  (Sailor Moon)
+
 setTimeout(function () {
     console.log(` `);
 }, 43000);
 setTimeout(function () {
     console.log(sailorMoon.showStatus()); //
 }, 43000);
-
+//---------------------------------------
+// Sailor Pluto attacked Queen Beryl
 setTimeout(function () {
     console.log(` `);
 }, 45000);
 setTimeout(function () {
     console.log(sailorPluto.attack(0, queenBeryl));
 }, 45000);
+//---------------------------------------
+// Show status Queen Beryl
 setTimeout(function () {
     console.log(` `);
 }, 47000);
 setTimeout(function () {
     console.log(queenBeryl.showStatus());
 }, 47000);
+//---------------------------------------
+// Show status Sailor Pluto
 setTimeout(function () {
     console.log(` `);
 }, 49000);
 setTimeout(function () {
     console.log(sailorPluto.showStatus());
 }, 49000);
-
+//---------------------------------------
+// Queen Beryl attacked Sailor Pluto
 setTimeout(function () {
     console.log(` `);
 }, 51000);
 setTimeout(function () {
     console.log(queenBeryl.attack(0, sailorPluto));
 }, 51000);
+//---------------------------------------
+// Show status Sailor Pluto
 setTimeout(function () {
     console.log(` `);
 }, 53000);
 setTimeout(function () {
     console.log(sailorPluto.showStatus());
 }, 53000);
+//---------------------------------------
+// Show Status Queen Beryl
 setTimeout(function () {
     console.log(` `);
 }, 55000);
 setTimeout(function () {
     console.log(queenBeryl.showStatus());
 }, 55000);
-
+//---------------------------------------
+// to be continued...
 setTimeout(function () {
     console.log(` `);
 }, 57000);
